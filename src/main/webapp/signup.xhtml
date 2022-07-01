@@ -1,40 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-      
-<h:head>
+<head>
 <title>ERP Sign-up</title>
-<h:outputStylesheet library="css" name="signup.css" /> 
-</h:head>
-<h:body>
+<link rel="stylesheet" type="text/css" href="signup.css"/>
+</head>
+<body>
 <h3>Signup</h3>
-<div id="signup_form">
+<div>
 <h:form>
         
-        Name: <h:inputText value="#{signin_user.name}" id="name" validatorMessage="value is required">
-  <f:validateRequired/>
+   Name: <h:inputText value="#{signin_user.name}" id="name" validatorMessage="value is required">
   </h:inputText>
   <h:message for="name" style="color:red"/>
   <br/><br/>
   
-  	   Email Address: <h:inputText value="#{signin_user.name}" id="emailaddress" validatorMessage="value is required">
-  <f:validateRequired/>
+  	   Email Address: <h:inputText value="#{signin_user.email}" id="emailaddress" validatorMessage="value is required">
   </h:inputText>
   <h:message for="emailaddress" style="color:red"/>
   <br/><br/>  
   
-       Age: <h:inputText value="#{user.age}" id="age" validatorMessage="age between 18 and 30">
-  <f:validateLongRange minimum="18" maximum="30"/>
+       Age: <h:inputText value="#{signin_user.age}" id="age" validatorMessage="age between 18 and 30">
   </h:inputText>
   <h:message for="age" style="color:red"/>
   <br/><br/>
   
   
        Mobile No: <h:inputText value="#{signin_user.mobileno}" id="mno" validatorMessage="mobile number should have 10 digits">
-   <f:validateLength minimum="10" maximum="10"/>
    </h:inputText>
    <h:message for="mno" style="color:red"/>
   <br/><br/>
@@ -44,9 +35,9 @@
   		<h:message for="password" style="color:red"/>
   		<br/><br/>
   		
-  <h:commandButton action="response" value="Submit" />
+  <h:commandButton action="#{signin_user.save()}" value="Submit" />
 
-  </h:form>
-  </div>  
-</h:body>
+  </h:form> 
+  </div>
+</body>
 </html>

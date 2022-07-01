@@ -1,27 +1,14 @@
-package jsfvalidation;
+package com.entity;
 
-import javax.faces.bean.ManagedBean;
-import javax.validation.constraints.*;
+import java.io.Serializable;
 
-@ManagedBean(name="signin_user",eager=true)
-
-public class signin_userData {
-
-	@Size(min=1)
-    String name;
+public class user implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
-	@NotNull
-	String emailaddress;
-	
-	@Min(18)
-	@Max(30)
+	String name;
+	String email;
 	int age;
-	
-	@Size(min=10,max=10)
-	String mobileno;
-	
-	@NotNull
-	@Size(min=8)
+	Long mobileno;
 	String password;
 	
 	public String getName() {
@@ -36,10 +23,10 @@ public class signin_userData {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getMobileno() {
+	public Long getMobileno() {
 		return mobileno;
 	}
-	public void setMobileno(String mobileno) {
+	public void setMobileno(Long mobileno) {
 		this.mobileno = mobileno;
 	}
 	public void setPassword(String password) {
@@ -49,9 +36,10 @@ public class signin_userData {
 		return password;
 	}
 	public void setEmail(String email) {
-		this.emailaddress=email;
+		this.email=email;
 	}
 	public String getEmail() {
-		return emailaddress;
+		return email;
 	}
+
 }
