@@ -1,12 +1,12 @@
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-<head>
+<h:head>
 <title>ERP Sign-up</title>
-<link rel="stylesheet" type="text/css" href="signup.css"/>
-</head>
+<h:outputStylesheet library="css" name="signup.css" />
+</h:head>
 <body>
 <h3>Signup</h3>
-<div>
+<div styleClass="signup_form">
 <h:form>
         
    Name: <h:inputText value="#{signin_user.name}" id="name" validatorMessage="value is required">
