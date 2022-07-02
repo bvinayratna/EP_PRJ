@@ -1,0 +1,28 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>ERP Login</title>
+	<link rel="Stylesheet" href="static/css/bootstrap.min.css" />
+</h:head>
+<body>
+<h:form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <h:inputText class="form-control" id="emailaddress" value='#{signin_user.email}' aria-describedby="emailHelp" />
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <h:inputSecret class="form-control" id="password" value="#{signin_user.password}"/>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <br/>
+  <button type="submit" class="btn btn-danger">Forgot Password?</button>
+  <button type="submit" class="btn btn-primary">Login</button>
+</h:form>
+
+</body>
+</html>

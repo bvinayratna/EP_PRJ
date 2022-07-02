@@ -1,43 +1,57 @@
 <html xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-<title>ERP Sign-up</title>
-<h:outputStylesheet library="css" name="signup.css" />
+	<title>ERP Sign-up</title>
+	<link rel="Stylesheet" href="static/css/bootstrap.min.css" />
 </h:head>
 <body>
-<h3>Signup</h3>
-<div styleClass="signup_form">
-<h:form>
-        
-   Name: <h:inputText value="#{signin_user.name}" id="name" validatorMessage="value is required">
-  </h:inputText>
-  <h:message for="name" style="color:red"/>
-  <br/><br/>
-  
-  	   Email Address: <h:inputText value="#{signin_user.email}" id="emailaddress" validatorMessage="value is required">
-  </h:inputText>
-  <h:message for="emailaddress" style="color:red"/>
-  <br/><br/>  
-  
-       Age: <h:inputText value="#{signin_user.age}" id="age" validatorMessage="age between 18 and 30">
-  </h:inputText>
-  <h:message for="age" style="color:red"/>
-  <br/><br/>
-  
-  
-       Mobile No: <h:inputText value="#{signin_user.mobileno}" id="mno" validatorMessage="mobile number should have 10 digits">
-   </h:inputText>
-   <h:message for="mno" style="color:red"/>
-  <br/><br/>
-  
-  		Password: <h:inputText value="#{signin_user.password}" id="password" validatorMessage="Password Should Contain a Special Character, a number, A lowercase and uppercase Character, Must be min 8 characters">
-  		</h:inputText>
-  		<h:message for="password" style="color:red"/>
-  		<br/><br/>
-  		
-  <h:commandButton action="#{signin_user.save()}" value="Submit" />
 
-  </h:form> 
-  </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<img src="static/images/main_pic.jpg"></img>
+			</div>
+			<div class="col-sm-4">
+				<br />
+				<br />
+				<h3>Signup here</h3>
+				<br />
+				<br />
+				<h:form>
+
+					<div class="form-floating mb-3">
+					<h:inputText class="form-control" id="name" value="#{signin_user.name}"/> 
+						<label for="floatingInput">Name</label>
+					</div>
+
+					<div class="form-floating mb-3">
+						<h:inputText class="form-control" value="#{signin_user.email}" id="emailaddress" aria-describedby="emailHelp" />
+						<label for="floatingInput">Email address</label>
+						<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+					</div>
+
+					<div class="form-floating mb-3">
+						<h:inputText class="form-control" value="#{signin_user.age}" id="age" />
+						<label for="floatingInput">Age</label>
+					</div>
+
+					<div class="form-floating mb-3">
+						<h:inputText class="form-control" value="#{signin_user.mobileno}" id="mobileno" aria-describedby="contactHelp" />
+						<label for="floatingInput">Contact</label>
+					</div>
+
+					<div class="form-floating mb-3">
+						<h:inputSecret class="form-control" value="#{signin_user.password}" id="password"  />
+						<label for="floatingInput">Password</label>
+					</div>
+
+					<h:commandButton class="btn btn-primary"
+						action="#{signin_user.save()}" value="Sign up" />
+
+				</h:form>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>

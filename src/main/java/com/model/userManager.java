@@ -23,8 +23,8 @@ public class userManager implements userRemote {
 		ps.setInt(3, user.getAge());
 		ps.setLong(4, user.getMobileno ());
 		ps.setString(5, user.getPassword());
-		
-		ps.execute();
+		System.out.println("COol");
+		ps.executeUpdate();
 		con.close();
 		return "data saved successfully";
 	}
