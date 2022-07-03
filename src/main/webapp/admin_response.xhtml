@@ -1,0 +1,214 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<title>ERP -#{login_user.name}</title>
+<link rel="Stylesheet" href="static/css/bootstrap.min.css" />
+<script src="static/js/bootstrap.js" type="text/javascript" />
+</head>
+<body>
+	<h:form>
+		<nav class="navbar navbar-expand-lg bg-primary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Enterprise Resource Planning</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarText"
+					aria-controls="navbarText" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><h:commandLink class="btn btn-primary"
+								action="index" value="Home" /></li>
+						<li class="nav-item"><h:commandLink class="btn btn-primary"
+								action="#" value="Contact us" /></li>
+						<li class="nav-item"><h:commandLink class="btn btn-primary"
+								action="signup" value="Signup" /></li>
+
+					</ul>
+					<span class="navbar-text"> Welcome
+						ADMIN:[#{admin_user.name}], <h:commandLink class="btn btn-danger"
+							action="login" value="Logout" />
+					</span>
+				</div>
+			</div>
+		</nav>
+	</h:form>
+
+	<div style="padding: 15px;">
+		<h3>Admin Dashboard of #{admin_user.name},</h3>
+		<br />
+
+		<div class="d-flex align-items-start">
+
+			<div class="nav flex-column nav-pills me-3" id="v-pills-tab"
+				role="tablist" aria-orientation="vertical">
+				<button class="nav-link active" id="v-pills-home-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button"
+					role="tab" aria-controls="v-pills-home" aria-selected="false">+
+					New Admin User</button>
+				<button class="nav-link" id="v-pills-profile-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+					type="button" role="tab" aria-controls="v-pills-profile"
+					aria-selected="false">+ New User</button>
+				<button class="nav-link" id="v-pills-messages-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-messages"
+					type="button" role="tab" aria-controls="v-pills-messages"
+					aria-selected="false">View Admin Users</button>
+				<button class="nav-link" id="v-pills-settings-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-settings"
+					type="button" role="tab" aria-controls="v-pills-settings"
+					aria-selected="false">View Users</button>
+				<button class="nav-link" id="v-pills-assigntasks-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-assigntasks"
+					type="button" role="tab" aria-controls="v-pills-assigntasks"
+					aria-selected="false">Assign task to user</button>
+			</div>
+			<div class="tab-content" id="v-pills-tabContent">
+				<div class="tab-pane fade show active" id="v-pills-home"
+					role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+					<h:form>
+						<div class="form-floating mb-3">
+							<h:inputText class="form-control" id="name"
+								value="#{admin_user.name}" />
+							<label for="floatingInput">Name</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<h:inputText class="form-control" value="#{admin_user.email}"
+								id="emailaddress" aria-describedby="emailHelp" />
+							<label for="floatingInput">Email address</label>
+							<div id="emailHelp" class="form-text">We'll never share
+								your email with anyone else.</div>
+						</div>
+
+						<div class="form-floating mb-3">
+							<h:inputText class="form-control" value="#{admin_user.age}"
+								id="age" />
+							<label for="floatingInput">Age</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<h:inputText class="form-control" value="#{admin_user.mobileno}"
+								id="mobileno" aria-describedby="contactHelp" />
+							<label for="floatingInput">Contact</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<h:inputSecret class="form-control"
+								value="#{admin_user.password}" id="password" />
+							<label for="floatingInput">Password</label>
+						</div>
+
+						<h:commandButton class="btn btn-primary"
+							action="#{admin_user.save()}" value="Sign up"
+							data-bs-toggle="modal" data-bs-target="#exampleModal" />
+
+
+
+
+					</h:form>
+				</div>
+				<div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+					aria-labelledby="v-pills-profile-tab" tabindex="0">
+					<h:form>
+						<div class="form-floating mb-3">
+							<h:inputText class="form-control" id="name"
+								value="#{signin_user.name}" />
+							<label for="floatingInput">Name</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<h:inputText class="form-control" value="#{signin_user.email}"
+								id="emailaddress" aria-describedby="emailHelp" />
+							<label for="floatingInput">Email address</label>
+							<div id="emailHelp" class="form-text">We'll never share
+								your email with anyone else.</div>
+						</div>
+
+						<div class="form-floating mb-3">
+							<h:inputText class="form-control" value="#{signin_user.age}"
+								id="age" />
+							<label for="floatingInput">Age</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<h:inputText class="form-control" value="#{signin_user.mobileno}"
+								id="mobileno" aria-describedby="contactHelp" />
+							<label for="floatingInput">Contact</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<h:inputSecret class="form-control"
+								value="#{signin_user.password}" id="password" />
+							<label for="floatingInput">Password</label>
+						</div>
+
+						<h:commandButton class="btn btn-primary"
+							action="#{signin_user.save()}" value="Add User"
+							data-bs-toggle="modal" data-bs-target="#exampleModal" />
+
+
+
+
+					</h:form>
+					</div>
+				<div class="tab-pane fade" id="v-pills-disabled" role="tabpanel"
+					aria-labelledby="v-pills-disabled-tab" tabindex="0"></div>
+				<div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+					aria-labelledby="v-pills-messages-tab" tabindex="0">
+					<h3>Admin Users Data Table</h3>
+					<h:dataTable value="#{admin_user.list}" class="table table-hover"
+						var="r">
+						<h:column>
+							<f:facet name="header">Name</f:facet>
+                  #{r.name}
+             </h:column>
+						<h:column>
+							<f:facet name="header">Email</f:facet>
+                  #{r.email}
+              </h:column>
+						<h:column>
+							<f:facet name="header">Age</f:facet>
+                  #{r.age}
+              </h:column>
+						<h:column>
+							<f:facet name="header">Mobileno</f:facet>
+                  #{r.mobileno}
+              </h:column>
+					</h:dataTable>
+				</div>
+				<div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+					aria-labelledby="v-pills-settings-tab" tabindex="0">
+					<h3>Users Data Table</h3>
+					<h:dataTable value="#{signin_user.list}" class="table table-hover"
+						var="r">
+						<h:column>
+							<f:facet name="header">Name</f:facet>
+                  #{r.name}
+             </h:column>
+						<h:column>
+							<f:facet name="header">Email</f:facet>
+                  #{r.email}
+              </h:column>
+						<h:column>
+							<f:facet name="header">Age</f:facet>
+                  #{r.age}
+              </h:column>
+						<h:column>
+							<f:facet name="header">Mobileno</f:facet>
+                  #{r.mobileno}
+              </h:column>
+					</h:dataTable>
+				</div>
+				<div class="tab-pane fade" id="v-pills-assigntasks" role="tabpanel"
+					aria-labelledby="v-pills-assigntasks-tab" tabindex="0">Hello
+					world!!!</div>
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

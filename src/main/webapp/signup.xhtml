@@ -5,7 +5,32 @@
 	<link rel="Stylesheet" href="static/css/bootstrap.min.css" />
 </h:head>
 <body>
-
+<h:form>
+		<nav class="navbar navbar-expand-lg bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Enterprise Resource Planning</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><h:commandLink class="btn btn-primary"
+								action="index" value="Home" /></li>
+						<li class="nav-item"><h:commandLink class="btn btn-primary"
+								action="#" value="Contact us" /></li>
+						<li class="nav-item"><h:commandLink class="btn btn-primary"
+								action="signup" value="Signup" /></li>
+						<li class="nav-item"><h:commandLink class="btn btn-primary"
+								action="admin_login" value="Admin Login" /></li>
+      </ul>
+      <span class="navbar-text">
+      <h:commandLink class="btn btn-primary"
+								action="login" value="User login" />
+      </span>
+    </div>
+  </div>
+</nav>
+	</h:form>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8">
@@ -13,40 +38,47 @@
 			</div>
 			<div class="col-sm-4">
 				<br />
-				<br />
 				<h3>Signup here</h3>
-				<br />
-				<br />
+				<br /> <br />
 				<h:form>
 
 					<div class="form-floating mb-3">
-					<h:inputText class="form-control" id="name" value="#{signin_user.name}"/> 
+						<h:inputText class="form-control" id="name"
+							value="#{signin_user.name}" />
 						<label for="floatingInput">Name</label>
 					</div>
 
 					<div class="form-floating mb-3">
-						<h:inputText class="form-control" value="#{signin_user.email}" id="emailaddress" aria-describedby="emailHelp" />
+						<h:inputText class="form-control" value="#{signin_user.email}"
+							id="emailaddress" aria-describedby="emailHelp" />
 						<label for="floatingInput">Email address</label>
-						<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+						<div id="emailHelp" class="form-text">We'll never share your
+							email with anyone else.</div>
 					</div>
 
 					<div class="form-floating mb-3">
-						<h:inputText class="form-control" value="#{signin_user.age}" id="age" />
+						<h:inputText class="form-control" value="#{signin_user.age}"
+							id="age" />
 						<label for="floatingInput">Age</label>
 					</div>
 
 					<div class="form-floating mb-3">
-						<h:inputText class="form-control" value="#{signin_user.mobileno}" id="mobileno" aria-describedby="contactHelp" />
+						<h:inputText class="form-control" value="#{signin_user.mobileno}"
+							id="mobileno" aria-describedby="contactHelp" />
 						<label for="floatingInput">Contact</label>
 					</div>
 
 					<div class="form-floating mb-3">
-						<h:inputSecret class="form-control" value="#{signin_user.password}" id="password"  />
+						<h:inputSecret class="form-control"
+							value="#{signin_user.password}" id="password" />
 						<label for="floatingInput">Password</label>
 					</div>
 
 					<h:commandButton class="btn btn-primary"
-						action="#{signin_user.save()}" value="Sign up" />
+						action="#{signin_user.save()}" value="Sign up" data-bs-toggle="modal" data-bs-target="#exampleModal" />
+
+
+					
 
 				</h:form>
 			</div>

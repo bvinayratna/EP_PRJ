@@ -3,7 +3,10 @@ package com.controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -28,7 +31,7 @@ public class userData {
 	//@NotNull
 	//@Size(min=8)
 	static String password;
-	
+	List<user> list;
 	String response;
 	
 	@EJB(lookup="java:global/EP_PROJECT/userManager!com.model.userRemote")
@@ -84,20 +87,22 @@ public class userData {
 	public void setResponse(String response) {
 		this.response = response;
 	}
-	/*public static void main(String args[]) throws SQLException {
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","vinAy@2003");
-		String qry = "insert into user values(?,?,?,?,?)";
-		PreparedStatement stmt = con.prepareStatement(qry);
-		stmt.setString(1, name);
-		stmt.setString(2, email);
-		stmt.setInt(3, age);
-		stmt.setLong(4, mobileno);
-		stmt.setString(5, password);
-		
-		
-		stmt.executeUpdate();
-			      
-		System.out.println( "Row Inserted...." );
-		con.close();
-	}*/
+	
+	public List<user> getList() {
+		{
+			try {
+				list= UR.getData();
+				System.out.println(list);
+			}catch(Exception e)
+			{
+				response = e.getMessage();
+				System.out.println(response);
+			}
+		}
+		return list;
+	}
+	public void setList(List<user> list) {
+		this.list = list;
+	}
+	
 }
