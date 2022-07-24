@@ -16,7 +16,8 @@ public class userManager implements userRemote {
 	
 	@Override
 	public String saveData(user user) throws Exception {
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","vinAy@2003");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","root");
+		System.out.println("Connection Success");
 		PreparedStatement ps = con.prepareStatement("insert into user values(?,?,?,?,?);");
 		ps.setString(1, user.getName());
 		ps.setString(2, user.getEmail());
@@ -31,9 +32,11 @@ public class userManager implements userRemote {
 	@Override
 	public List<user> getData() throws Exception {
 		// TODO Auto-generated method stub
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","vinAy@2003");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","root");
+		System.out.println("Connection Success");
 		PreparedStatement ps=con.prepareStatement("select * from user;");
 		ResultSet rs =ps.executeQuery();
+		System.out.println("Connection successful");
 		List<user> L= new ArrayList<user>();
 		while(rs.next()) {
 			user user =new user();
@@ -53,9 +56,11 @@ public class userManager implements userRemote {
 	@Override
 	public List<user> getAdminData() throws Exception {
 		// TODO Auto-generated method stub
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","vinAy@2003");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","root");
+		System.out.println("Connection Success");
 		PreparedStatement ps=con.prepareStatement("select * from admin_users;");
 		ResultSet rs =ps.executeQuery();
+		System.out.println("Connection successful");
 		List<user> L= new ArrayList<user>();
 		while(rs.next()) {
 			user user =new user();
@@ -74,7 +79,8 @@ public class userManager implements userRemote {
 	
 	@Override
 	public String saveAdminData(user user) throws Exception {
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","vinAy@2003");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EP_PROJECT","root","root");
+		System.out.println("Connection Success");
 		PreparedStatement ps = con.prepareStatement("insert into admin_users values(?,?,?,?,?);");
 		ps.setString(1, user.getName());
 		ps.setString(2, user.getEmail());

@@ -34,11 +34,12 @@ public class login_userData {
 		String response="";
 		try {
 			String query = "SELECT * FROM user;";
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ep_project","root","vinAy@2003");
-			
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ep_project","root","root");
 			//STATEMENT TO EXECUTE CONNECTION
+			System.out.println("Connection Success");
 			Statement st = con.createStatement();
 			ResultSet rs=st.executeQuery(query);
+			System.out.println("resultset Success");
 			while(rs.next()) {
 				if(email.equals(rs.getString(2))) {
 					if(password.equals(rs.getString(5))) {

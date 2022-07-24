@@ -58,11 +58,12 @@ public class admin_userData {
 		String res="";
 		try {
 			String query = "SELECT * FROM admin_users;";
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ep_project","root","vinAy@2003");
-			
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ep_project","root","root");
+			System.out.println("Connection Success");
 			//STATEMENT TO EXECUTE CONNECTION
 			Statement st = con.createStatement();
 			ResultSet rs=st.executeQuery(query);
+			System.out.println("Result set success");
 			while(rs.next()) {
 				if(email.equals(rs.getString(2))) {
 					if(password.equals(rs.getString(5))) {
